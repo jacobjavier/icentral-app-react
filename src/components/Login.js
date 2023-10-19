@@ -82,10 +82,12 @@ export default Login;
  */
 
 import React, { useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './loginStyles.css';
 import { messaging, getDeviceToken } from './firebase'; // Importa el objeto de mensajería desde tu archivo firebase.js
+import ResetPasswordView from './ResetPasswordView';
+
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -103,13 +105,13 @@ function Login() {
 
   const handleLogin = useCallback(async (e) => {
     e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-
+    const userAgent = navigator.userAgent;
     const loginData = {
       username,
       password,
       expiration: 604800,
       sliding: 1,
-      deviceName: 'My Phone Model',
+      deviceName: userAgent,
     };
 
     try {
@@ -147,27 +149,36 @@ function Login() {
 
   return (
     <div className="loginBackground">
-      <div className="loginContainer">
-        <div className="loginHeader">
-          <h2>Acceso a cuenta</h2>
+  <div className="container-fluid">
+    <div className="row justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+      <div className="col-md-6">
+        <div className="card">
+          <div className="card-body">
+            <h2 className="card-title text-center">Acceso a cuenta</h2>
+            <form onSubmit={handleLogin}>
+              {error && <p className="alert alert-danger">{error}</p>}
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">Email:</label>
+                <input type="text" className="form-control" id="email" value={username} onChange={handleUsernameChange} />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Contraseña:</label>
+                <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} />
+              </div>
+              <button type="submit" className="btn btn-primary">Ingresar</button>
+            </form>
+            <div className="mt-3">
+              <Link to="/crear-cuenta" className="text-decoration-none">Crear cuenta</Link> / 
+              <Link to="/ResetPasswordView" className="text-decoration-none ml-2">Olvidé mi contraseña</Link>
+            </div>
+          </div>
         </div>
-        <form onSubmit={handleLogin} className="loginForm">
-          {error && <p className="errorMessage">{error}</p>}
-          <div className="formGroup">
-            <label>Email:</label>
-            <input type="text" className="formInput" value={username} onChange={handleUsernameChange} />
-          </div>
-          <div className="formGroup">
-            <label>Contraseña:</label>
-            <input type="password" className="formInput" value={password} onChange={handlePasswordChange} />
-          </div>
-          <button type="submit" className="loginButton">Ingresar</button>
-          <div className="extraOptions">
-            Crear cuenta / Recuperar contraseña
-          </div>
-        </form>
       </div>
     </div>
+  </div>
+</div>
+
+
   );
 }
 

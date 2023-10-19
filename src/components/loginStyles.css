@@ -1,15 +1,37 @@
 .loginBackground {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('https://login.icentral.com.mx/img/juarez_background.jpg'); /* reemplaza esto con la ruta a tu imagen */
+  background-size: cover;
   
-  .loginContainer {
+  background-repeat: no-repeat;
+
+background-size: cover;
+background-position: center center; /* centrado horizontal y vertical */
+background-repeat: no-repeat;
+}
+
+.container {
+height: 100%;
+}
+
+.row {
+height: 100%;
+}
+/*   .loginContainer {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  } */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  
+  html, body {
+    height: 100%;
+  }
+  

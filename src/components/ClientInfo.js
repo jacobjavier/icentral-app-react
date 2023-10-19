@@ -54,7 +54,7 @@ function ClientInfo() {
 
     fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/dashboard', setClientData, 'Solicitud de datos del cliente fallida');
     fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/client', setOtherData1, 'Solicitud de datos adicionales 1 fallida');
-    fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/services?limit=1&offset=1', setOtherData2, 'Solicitud de datos adicionales 2 fallida');
+    fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/services?limit=1&offset=1', setOtherData2, 'Credenciales no Validas');
   }, []);
 
   const handleLogout = () => {
