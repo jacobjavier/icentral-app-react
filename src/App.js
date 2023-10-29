@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Cambia "Switch" a "Routes"
 import Login from './components/Login';
-import ClientInfo from './components/ClientInfo';
+import ClientInfo from './components/ClientInfoContainer';
 
 function App() {
   return (

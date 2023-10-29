@@ -1,12 +1,12 @@
 .loginBackground {
-  min-height: 100vh;
-  width: 100vw;
+  min-height: cover;
+  width: 100%;
   background-image: url('https://login.icentral.com.mx/img/juarez_background.jpg'); /* reemplaza esto con la ruta a tu imagen */
-  background-size: cover;
+  background-size: cover;  
   
   background-repeat: no-repeat;
 
-background-size: cover;
+background-size: cover; /* cubre todo el contenedor */
 background-position: center center; /* centrado horizontal y vertical */
 background-repeat: no-repeat;
 }

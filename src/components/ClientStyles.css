@@ -1,0 +1,27 @@
+.bg-success-gradient {
+    background: linear-gradient(45deg, hsl(122, 45%, 66%), #82c786); /* Cambia los colores de gradiente según tus preferencias */
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+    
+  }
+
+  .bg-info-color {
+    background-color: hsl(199, 60%, 62%); /* Cambia el color de fondo según tus preferencias */
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+    border-color: hsl(207, 88%, 38%); /* Cambia el color del borde según tus preferencias */
+  }
+  
+  .bg-client-color {
+    background-color: hsl(199, 67%, 38%); /* Cambia el color de fondo según tus preferencias */
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+    border-color: hsl(207, 88%, 38%); /* Cambia el color del borde según tus preferencias */
+  }
+  .bg-service {
+    background-color: hsl(200, 80%, 90%); /* Cambia el color de fondo según tus preferencias */
+    color: white; /* Cambia el color del texto a blanco o el que desees */
+    border-color: hsla(205, 15%, 23%, 0.082); /* Cambia el color del borde según tus preferencias */
+  }
+  .bg-sc {
+    background-color: hsl(200, 80%, 90%); /* Cambia el color de fondo según tus preferencias */
+    color: rgb(0, 0, 0); /* Cambia el color del texto a blanco o el que desees */
+    border-color: hsla(205, 15%, 23%, 0.082); /* Cambia el color del borde según tus preferencias */
+  }

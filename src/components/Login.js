@@ -149,9 +149,9 @@ function Login() {
 
   return (
     <div className="loginBackground">
-  <div className="container-fluid">
+  <div className="container">
     <div className="row justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-      <div className="col-md-6">
+      <div className="col-md-5">
         <div className="card">
           <div className="card-body">
             <h2 className="card-title text-center">Acceso a cuenta</h2>
