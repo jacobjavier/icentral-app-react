@@ -1,1 +1,70 @@
 56d53524
+
+// ClientInfoView.js
+
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './ClientStyles.css';
+import { pauseService, resumeService } from './ApiG'; // Importa las funciones
+
+function ClientInfoView({ clientData, otherData1, otherData2, error, handleLogout }) {
+  const [serviceIdToModify, setServiceIdToModify] = useState(null);
+
+  const handlePauseService = async (id, appKeyString) => {
+    try {
+      const result = await pauseService(id, appKeyString);
+      alert(result); // Puedes mostrar una alerta o manejar el resultado de otra manera
+    } catch (error) {
+      alert('Error al pausar el servicio'); // Maneja el error de acuerdo a tus necesidades
+    }
+  };
+
+  const handleResumeService = async (id, appKeyString) => {
+    try {
+      const result = await resumeService(id, appKeyString);
+      alert(result); // Puedes mostrar una alerta o manejar el resultado de otra manera
+    } catch (error) {
+      alert('Error al reanudar el servicio'); // Maneja el error de acuerdo a tus necesidades
+    }
+  };
+
+  return (
+    <div className="container mt-4">
+      {error && <p className="text-danger">{error}</p>}
+      {otherData1 && (
+        <div className='row'>
+          <h3 className='text-center my-3'>Hola, {otherData1.firstName}!</h3>
+          <div className='card bg-client-color'>
+            <h6 className='card-header list-group-item my-3'>No. de Cliente: CJ{otherData1.id}</h6>
+            <ul className='list-group list-group-flush'>
+              <div className="row">
+                {otherData2 &&
+                  otherData2.map((data) => (
+                    <div className="col-md-6" key={data.id}>
+                      <div className={`card bg-service my-3 ${data.status === 1 ? 'text-success' : 'text-danger'}`}>
+                        <div className="card-body">
+                          <h5 className="card-title">
+                            Servicio: {data.name}
+                          </h5>
+                          <p className="card-text">
+                            Dirección: { data.fullAddress }
+                          </p>
+                          {data.status === 1 ? (
+                            <button className="btn btn-primary" onClick={() => handlePauseService(data.id, 'appKeyString')}>Pausar Servicio</button>
+                          ) : (
+                            <button className="btn btn-danger" onClick={() => handleResumeService(data.id, 'appKeyString')}>Reactivar Servicio</button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default ClientInfoView;
