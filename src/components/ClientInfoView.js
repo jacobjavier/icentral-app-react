@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+ //import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ClientStyles.css';
 import { pauseService, resumeService } from './Apig';
 
 function ClientInfoView({ clientData, otherData1, otherData2, error, handleLogout, fetchData, 
     setClientData, setOtherData1, setOtherData2, }) {
-  const [serviceIdToModify, setServiceIdToModify] = useState(null);
+  // const [serviceIdToModify, setServiceIdToModify] = useState(null);
 
   const handlePauseService = async (id, appKeyString) => {
     const shouldPause = window.confirm('¿Estás seguro de que deseas suspender el servicio?');

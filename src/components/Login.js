@@ -86,7 +86,7 @@ import { useNavigate,Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './loginStyles.css';
 import { messaging, getDeviceToken } from './firebase'; // Importa el objeto de mensajería desde tu archivo firebase.js
-import ResetPasswordView from './ResetPasswordView';
+//import ResetPasswordView from './ResetPasswordView';
 
 
 function Login() {

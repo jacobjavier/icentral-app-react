@@ -20,18 +20,28 @@ const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
 async function getDeviceToken() {
+  let currentToken = '';
   try {
-    const currentToken = await getToken(messaging);
-    if (currentToken) {
-      console.log('Token de FCM:', currentToken);
+    // Solicitar permiso para recibir notificaciones
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      // Obtener el token
+      currentToken = await getToken(messaging, { vapidKey: 'BMVsqIcqrVRUoqsU6JOV7WpHAAfJ9JGkyCoLlzocV9rzJN9jNwu9GQEZKHrtxpXrOL2HkeKYXGZyyj0JHadxFbg' }); // Asegúrate de reemplazar 'tu_vapid_key' con tu clave pública
+      if (currentToken) {
+        console.log('Token de FCM:', currentToken);
+      } else {
+        console.log('No se pudo obtener el token. Solicita permiso para recibir notificaciones.');
+      }
     } else {
-      console.log('No se pudo obtener el token. Solicita permiso para recibir notificaciones.');
+      console.log('Permiso para recibir notificaciones no concedido.');
     }
   } catch (error) {
     console.log('Ocurrió un error al obtener el token:', error);
   }
+
+  return currentToken;
 }
-// Exportación del objeto de mensajería para usarlo en otros archivos
+
 export { messaging, getDeviceToken };
 
 

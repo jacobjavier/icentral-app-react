@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.2",
     "date-fns": "^2.30.0",
+    "express": "^4.18.2",
     "firebase": "^10.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -41,5 +42,17 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobjavier/icentral-app-react.git"
+  },
+  "author": "jacob espino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobjavier/icentral-app-react/issues"
+  },
+  "homepage": "https://github.com/jacobjavier/icentral-app-react#readme"
 }

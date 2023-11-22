@@ -20,7 +20,7 @@ export const pauseService = async (id) => {
     if (response.status === 200) {
       return 'Servicio pausado con éxito';
     } else {
-      throw new Error('No se pudo pausar el servicio');
+      throw  Error('No se pudo pausar el servicio');
     }
   } catch (error) {
     throw error;

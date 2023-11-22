@@ -51,44 +51,8 @@ function ClientInfoContainer() {
     };
 
     // Función para manejar la pausa del servicio
-    const handlePauseService = async (id, appKeyString) => {
-      const shouldPause = window.confirm('¿Estás seguro de que deseas suspender el servicio?');
-      if (shouldPause) {
-        try {
-          await pauseService(id, appKeyString);
-          // Llama a fetchData para obtener datos actualizados después de la pausa
-          const updatedClientData = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/dashboard', 'Solicitud de datos del cliente fallida');
-          const updatedOtherData1 = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/client', 'Solicitud de datos adicionales 1 fallida');
-          const updatedOtherData2 = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/services', 'Credenciales no validas');
-
-          setClientData(updatedClientData);
-          setOtherData1(updatedOtherData1);
-          setOtherData2(updatedOtherData2);
-        } catch (error) {
-          setError(error.message);
-        }
-      }
-    };
 
     // Función para manejar la reanudación del servicio
-    const handleResumeService = async (id, appKeyString) => {
-      const shouldResume = window.confirm('¿Estás seguro de que deseas reactivar el servicio?');
-      if (shouldResume) {
-        try {
-          await resumeService(id, appKeyString);
-          // Llama a fetchData para obtener datos actualizados después de la reanudación
-          const updatedClientData = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/dashboard', 'Solicitud de datos del cliente fallida');
-          const updatedOtherData1 = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/client', 'Solicitud de datos adicionales 1 fallida');
-          const updatedOtherData2 = await fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/services', 'Credenciales no validas');
-
-          setClientData(updatedClientData);
-          setOtherData1(updatedOtherData1);
-          setOtherData2(updatedOtherData2);
-        } catch (error) {
-          setError(error.message);
-        }
-      }
-    };
 
     // Llama a fetchData para cargar los datos iniciales
         fetchData('https://portal.icentral.com.mx/crm/api/v1.0/client-zone/dashboard', 'Solicitud de datos del cliente fallida')
